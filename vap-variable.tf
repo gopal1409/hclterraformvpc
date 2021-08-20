@@ -45,7 +45,7 @@ variable "vpc_enable_nat_gateway" {
 
 variable "vpc_single_nat_gateway" {
   type = bool
-  default - true
+  default = true
 }
 
 
