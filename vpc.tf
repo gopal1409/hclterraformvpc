@@ -8,7 +8,7 @@ module "vpc" {
     private_subnets = var.vpc_private_subnets
     public_subnets  = var.vpc_public_subnets
 #database subnet
-    database_subnet = var.vpc_database_subnets
+    database_subnets = var.vpc_database_subnets
     create_database_subnet_group = var.vpc_create_database_subnet_group
     create_database_subnet_route_table = var.vpc_create_database_subnet_route_table
 
@@ -22,13 +22,13 @@ module "vpc" {
     tags = local.common_tags
     vpc_tags = local.common_tags
     #addtional tags
-    public_subnets_tags = {
+    public_subnet_tags = {
         Type = "Public Subnet"
     }
-    private_subnets_tags = {
+    private_subnet_tags = {
         Type = "private Subnet"
     }
-    database_subnets_tags = {
+    database_subnet_tags = {
         Type = "database subnet"
     }
 }
