@@ -2,17 +2,33 @@
 module "vpc" {
     source =  "terraform-aws-modules/vpc/aws"
     version = "3.6.0"
-    cidr = "10.0.0.0/16"
-    name = "vpc-dev-gopal" #change it to your name
-    azs             = ["ap-northeast-2a", "ap-northeast-2b", "ap-northeast-2c"]
-    private_subnets = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
-    public_subnets  = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
+    cidr = var.vpc_cidr_block
+    name = "${local.name}-${var.vpc_name}" #dev-sap-myvpc
+    azs             = var.vpc_availability_zones
+    private_subnets = var.vpc_private_subnets
+    public_subnets  = var.vpc_public_subnets
+#database subnet
+    database_subnet = var.vpc_database_subnets
+    create_database_subnet_group = var.vpc_create_database_subnet_group
+    create_database_subnet_route_table = var.vpc_create_database_subnet_route_table
 
-    enable_nat_gateway = true
-    single_nat_gateway = true
+
+    enable_nat_gateway = var.vpc_enable_nat_gateway
+    single_nat_gateway = var.vpc_single_nat_gateway
 
     #vpc dns parameters
     enable_dns_support = true 
     enable_dns_hostnames= true
-  
+    tags = local.common_tags
+    vpc_tags = local.common_tags
+    #addtional tags
+    public_subnets_tags = {
+        Type = "Public Subnet"
+    }
+    private_subnets_tags = {
+        Type = "private Subnet"
+    }
+    database_subnets_tags = {
+        Type = "database subnet"
+    }
 }
