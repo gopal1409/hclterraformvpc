@@ -11,7 +11,7 @@ variable "vpc_cidr_block" {
 
 variable "vpc_availability_zones" {
   type = list(string)
-  default = ["us-east-1a","us-east-1b"]
+  default = ["ap-northeast-2a","ap-northeast-2b"]
 }
 
 #vpc public subnet
