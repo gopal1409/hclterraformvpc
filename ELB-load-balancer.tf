@@ -1,6 +1,6 @@
 module "alb" {
   source  = "terraform-aws-modules/alb/aws"
-  version = "5.16.0" #this is also not inportant
+  version = "6.5.0" #this is also not inportant
   # insert the 6 required variables here
   name = "${local.name}-alb"
   load_balancer_type = "application"
@@ -9,7 +9,8 @@ module "alb" {
      module.vpc.public_subnets[0],
      module.vpc.public_subnets[1]
   ]
-  security_groups = [module.loadbalancer_sg.this_security_group_id]
+  #[aws_security_group.lb_sg.id]
+  security_groups = [module.loadbalancer_sg.id]
   #internal = true
   http_tcp_listeners = [
       {
