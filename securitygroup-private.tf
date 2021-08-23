@@ -2,7 +2,7 @@ module "private_sg" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "4.3.0"
   # insert the 3 required variables here
-  name = "private-sg"
+  name = "private_sg"
   description = "Security Group with HTTP and SSH Port Open for entire vpc"
   vpc_id = module.vpc.vpc_id
   #ingress rule and CIDR block
