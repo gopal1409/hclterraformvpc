@@ -9,7 +9,7 @@ module "loadbalancer_sg" {
   ingress_rules = ["http-80-tcp"]
   ingress_cidr_blocks = ["0.0.0.0/0"]
   egress_rules = ["all-all"]
-  tag = local.common_tags
+  tags = local.common_tags
 
   ingress_with_cidr_blocks = [
       {
