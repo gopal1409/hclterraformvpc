@@ -1,6 +1,6 @@
 module "ec2_private" {
   source  = "terraform-aws-modules/ec2-instance/aws"
-  version = "2.19.0"
+  version = "2.17.0"
   # insert the 10 required variables here
   name = "${var.environment}-vm"
   ami = data.aws_ami.amznlinux2.id 
