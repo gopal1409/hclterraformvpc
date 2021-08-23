@@ -6,7 +6,7 @@ module "loadbalancer_sg" {
   description = "Security Group with HTTP open for entier internet"
   vpc_id = module.vpc.vpc_id
   #ingress rule and CIDR block
-  ingress_rule = ["http-80-tcp"]
+  ingress_rules = ["http-80-tcp"]
   ingress_cidr_blocks = ["0.0.0.0/0"]
   egress_rules = ["all-all"]
   tag = local.common_tags
