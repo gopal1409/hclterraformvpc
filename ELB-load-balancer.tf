@@ -31,7 +31,7 @@ module "elb" {
       timeout = 5
   }
   #Behind the load balancer we need to attach instance. 
-  number_of_instance = var.private_instance_count
+  number_of_instances = var.private_instance_count
   instances = [
       module.ec2_private.id[0],
       module.ec2_private.id[1]
