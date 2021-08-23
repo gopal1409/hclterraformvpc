@@ -1,4 +1,4 @@
-module "ec2-instance" {
+module "ec2_private" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "2.19.0"
   # insert the 10 required variables here
