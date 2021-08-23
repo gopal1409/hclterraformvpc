@@ -9,6 +9,6 @@ module "ec2_public" {
   #key_name
   #monitoring = true
   subnet_id = module.vpc.public_subnets[0]
-  vpc_security_group_ids = [module.public_baston_sg.this_security_group_id]
+  vpc_security_group_ids = [module.public-baston-sg.this_security_group_id]
   tags = local.common_tags
 }
