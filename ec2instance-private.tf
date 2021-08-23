@@ -6,7 +6,7 @@ module "ec2_private" {
   ami = data.aws_ami.amznlinux2.id 
   instance_type = var.instance_type
   vpc_security_group_ids = [module.private_sg.this_security_group_id]
-  subnet_id = [
+  subnet_ids = [
               module.vpc.private_subnets[0],
               module.vpc.private_subnets[1]
   ]
