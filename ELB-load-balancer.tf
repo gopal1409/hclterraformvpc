@@ -4,6 +4,7 @@ module "alb" {
   # insert the 6 required variables here
   name = "${local.name}-alb"
   load_balancer_type = "application"
+  vpc_id = module.vpc.vpc_id 
   subnets = [
      module.vpc.public_subnets[0],
      module.vpc.public_subnets[1]
@@ -15,11 +16,12 @@ module "alb" {
       port = 80
       protocol = "HTTP"
       target_group_index = 0 #current we are adding one target group
-      },
+      }
   ]
   #Target Group
   #app1 target group
- {
+  target_groups = [
+  {
    name_prefix = "app1-"    
    backend_protocol = "HTTP"
    backend_port = 80
