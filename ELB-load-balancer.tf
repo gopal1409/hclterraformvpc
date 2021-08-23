@@ -1,13 +1,13 @@
 module "elb" {
   source  = "terraform-aws-modules/elb/aws"
-  version = "3.0.0" #this is also not inportant
+  version = "2.5.0" #this is also not inportant
   # insert the 6 required variables here
   name = "${local.name}-elb"
   subnets = [
      module.vpc.public_subnets[0],
      module.vpc.public_subnets[1]
   ]
-  security_groups = []
+  security_groups = [module.loadbalancer_sg.this_security_group_id]
   #internal = true
   listener = [
       {
