@@ -11,7 +11,7 @@ module "alb" {
   ]
   security_groups = [module.loadbalancer_sg.this_security_group_id]
   #internal = true
-  http_tcp_listener = [
+  http_tcp_listeners = [
       {
       port = 80
       protocol = "HTTP"
