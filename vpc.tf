@@ -13,8 +13,8 @@ module "vpc" {
     #create_database_subnet_route_table = var.vpc_create_database_subnet_route_table
 
 
-    enable_nat_gateway = var.vpc_enable_nat_gateway
-    single_nat_gateway = var.vpc_single_nat_gateway
+    #enable_nat_gateway = var.vpc_enable_nat_gateway
+    #single_nat_gateway = var.vpc_single_nat_gateway
 
     #vpc dns parameters
     enable_dns_support = true 

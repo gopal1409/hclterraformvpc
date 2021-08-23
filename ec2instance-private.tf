@@ -7,8 +7,8 @@ module "ec2_private" {
   instance_type = var.instance_type
   vpc_security_group_ids = [module.private_sg.this_security_group_id]
   subnet_ids = [
-              module.vpc.private_subnets[0],
-              module.vpc.private_subnets[1]
+              module.vpc.public_subnets[0],
+              module.vpc.public_subnets[1]
   ]
   instance_count  = var.private_instance_count
   user_data = file("${path.module}/app1-install.sh")
