@@ -5,7 +5,7 @@ module "ec2_private" {
   name = "${var.environment}-vm"
   ami = data.aws_ami.amznlinux2.id 
   instance_type = var.instance_type
-  #vpc_security_group_ids = [module.private_sg]
+  vpc_security_group_ids = module.private_sg.id
   subnet_id = module.vpc.private_subnets[0]
   instance_count  = var.private_instance_count
   user_data = file("${path.module}/app1-install.sh")
