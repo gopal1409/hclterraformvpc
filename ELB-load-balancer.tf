@@ -10,7 +10,7 @@ module "alb" {
      module.vpc.public_subnets[1]
   ]
   #[aws_security_group.lb_sg.id]
-  security_groups = [module.loadbalancer_sg.security_group_id]
+  security_groups = [module.loadbalancer_sg.this_security_group_id]
   http_tcp_listeners = [
       {
       port = 80
