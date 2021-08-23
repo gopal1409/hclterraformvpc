@@ -1,6 +1,6 @@
 module "private_sg" {
   source  = "terraform-aws-modules/security-group/aws"
-  version = "4.3.0"
+  version = "3.18.0"
   # insert the 3 required variables here
   name = "private_sg"
   description = "Security Group with HTTP and SSH Port Open for entire vpc"
